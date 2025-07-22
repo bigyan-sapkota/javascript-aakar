@@ -86,15 +86,17 @@ function Person(name, age) {
 
 // method
 Person.prototype.sayHello = function () {
-  console.log("Hello I am " + this.name + " and I am " + age + " years old");
+  // console.log(
+  //   "Hello I am " + this.name + " and I am " + this.age + " years old"
+  // );
 };
 
 // method
 Person.prototype.checkMinor = function () {
   if (this.age >= 20) {
-    console.log(this.name + " is not minor");
+    // console.log(this.name + " is not minor");
   } else {
-    console.log(this.name + " is minor");
+    // console.log(this.name + " is minor");
   }
 };
 
@@ -103,3 +105,96 @@ anjil.sayHello();
 const p2 = new Person("bigyan", 20);
 p2.sayHello();
 anjil.checkMinor();
+
+// syntactic sugar
+// if (condition){
+//   statement;
+// }else if (condition){
+//   statement;
+// }else {
+//   statement
+// }
+
+// OOP - Object Oriented Programming
+class Student {
+  constructor(name, age) {
+    this.bidhyarthiKONam = name;
+    this.studentsAge = age || 20;
+  }
+
+  sayHello() {
+    console.log("Hello " + this.bidhyarthiKONam);
+  }
+
+  canBeCitizen() {
+    if (this.studentsAge >= 16) {
+      console.log(this.bidhyarthiKONam + " can have citizenship");
+    } else {
+      console.log(this.bidhyarthiKONam + " can't have citizenship");
+    }
+  }
+}
+
+const std1 = new Student("Anjil");
+// std1.sayHello();
+// std1.canBeCitizen();
+const std2 = new Student("Prakrity", 42);
+// std2.sayHello();
+// std2.canBeCitizen();
+
+// Objects in js
+const student = {
+  name: "Bigyan Sapkota",
+  age: 23,
+  gender: "male",
+  isMinor: false,
+  college: {
+    name: "Birendra",
+    address: "Bharatpur-10",
+    department: [
+      { name: "it", head: "abc" },
+      {
+        name: "bio",
+        head: { name: "zebra", wife: "ebra", phone: "98xxxxxxxx" },
+      },
+    ],
+  },
+};
+
+console.log(student["gender"]); //  ❌ don't do this
+console.log(student.name); // ✅ Do this
+console.log(student.college.address);
+console.log(student.college.department[1].head);
+
+console.log("fathersName" in student);
+
+// V.V.V.V.V.V.V.V Imp
+let keysOfStudent = Object.keys(student);
+console.log(keysOfStudent);
+
+console.log("Values of student object is ", Object.values(student));
+
+// Lastei / atti nei imp
+// Destructuring and spread operator
+const { name, age, ...remaining } = student;
+console.log(name, age);
+console.log(remaining);
+
+const myCustomArr = [1, 2, 3];
+const [a, b, ...r] = myCustomArr;
+console.log(a, b);
+console.log(r);
+
+const arr1 = [4, 5, 6];
+const arr2 = [7, 8, 9];
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
+
+// static method
+class MathOperations {
+  static add(a, b) {
+    console.log(a + b);
+  }
+}
+
+MathOperations.add(1, 2);
