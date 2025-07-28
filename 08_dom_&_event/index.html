@@ -4,6 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello</title>
+
+    <style>
+      .custom-style {
+        color: blue;
+        font-size: 1.5rem;
+      }
+
+      .box {
+        border: 2px solid black;
+        padding: 1rem;
+      }
+
+      .box-header {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .hide-this {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <h1 id="custom-heading"></h1>
@@ -35,6 +56,40 @@
       <li>Orange</li>
       <!-- <li>Banana</li> -->
     </ol>
+
+    <!-- replacing content -->
+    <div id="replace-parent">
+      <p id="old">Old Paragraph</p>
+    </div>
+
+    <!-- image tag -->
+    <img
+      id="image-to-change"
+      src="./images/house.jpg"
+      alt="house"
+      height="100"
+      width="100"
+    />
+
+    <hr />
+
+    <!-- styles -->
+    <div>
+      <button id="btn">Click me</button>
+      <p id="style-to-change">This is the world</p>
+    </div>
+
+    <hr />
+    <button id="box-handler">Show/Hide Button</button>
+
+    <div class="box" id="custom-box">
+      <div class="box-header">
+        <p>Box</p>
+        <p>x</p>
+      </div>
+
+      <h1>This is a box</h1>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
