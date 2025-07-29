@@ -65,3 +65,40 @@ const customBox = document.getElementById("custom-box");
 boxHandlerButton.addEventListener("click", () => {
   customBox.classList.toggle("hide-this");
 });
+
+// events in js
+// keyup event
+const inputOne = document.getElementById("input-one");
+
+inputOne.addEventListener("keyup", (event) => {
+  // console.log(event);
+  console.log(`Key released : ${event.key}`);
+});
+
+function releasedKey(event) {
+  console.log(`Key released : ${event.key}`);
+}
+
+// submit event
+const customForm = document.getElementById("form");
+customForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // console.log("form submitted");
+});
+
+const formButton = document.getElementById("form-button");
+
+// formButton.addEventListener(
+//   "click",
+//   () => {
+//     console.log("let's see");
+//   },
+//   { once: true }
+// );
+
+function logClick() {
+  console.log("clicked");
+}
+
+formButton.addEventListener("click", logClick);
+formButton.removeEventListener("click", logClick); // memory leak prevent // we will get into this again in react // cleanup
