@@ -137,11 +137,11 @@ wait(1000)
 
 async function printNumbers() {
   await wait(1000);
-  console.log("1");
+  // console.log("1");
   await wait(1000);
-  console.log("2");
+  // console.log("2");
   await wait(1000);
-  console.log("3");
+  // console.log("3");
 }
 
 printNumbers();
@@ -150,3 +150,58 @@ printNumbers();
 //   .then(() => {})
 //   .then(() => {})
 //   .then(() => {});
+
+// get, post, put, delete
+// CRUD -> Create(post), Read(get), Update(put), Delete(delete)
+// get doesn't required login
+// post request sometimes looks for permission and sometime doesn't.
+
+const backendUrl = "https://jsonplaceholder.typicode.com";
+// how to fetch data from api
+// fetch(`${URL}/posts`)
+//   .then((res) => res.json())
+//   // .then((data) => console.log(data))
+//   .catch((err) => console.log("Error message  : " + err));
+
+// USING ASYNC AWAIT FOR API CALL
+async function fetchPost() {
+  try {
+    const response = await fetch(`${backendUrl}/posts`);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+fetchPost();
+
+// objects and json
+// json
+// const person = { "name": "nischal" };
+// console.log(person.name);
+
+// try catch finally
+
+try {
+  let a = 10;
+  let b = a + X;
+  // console.log(b);
+} catch (err) {
+  // console.log(err.message);
+} finally {
+  // console.log("La kam sakio hai ta, ki vao ki vayena");
+}
+
+function divide(a, b) {
+  try {
+    if (b === 0) {
+      throw new Error("Can't divide any number by 0");
+    }
+    // console.log("result : ", a / b);
+  } catch (error) {
+    // console.log("Error message : ", error.message);
+  }
+}
+
+divide(10, 2);
